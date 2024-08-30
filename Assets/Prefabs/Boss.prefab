@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6946011029358139911}
   - component: {fileID: 6837050705736850590}
   - component: {fileID: 5434235188476654868}
-  - component: {fileID: 9012651901573451703}
+  - component: {fileID: -224557369053366412}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -521707380, guid: 042ae02da74f6b94992064d6c75af944, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin: {fileID: 3840301280723503377, guid: 714f545fc4c3fc245a026530859c0c8d, type: 3}
   moveSpeed: 0.5
-  hp: 200
+  hp: 500
 --- !u!61 &5434235188476654868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8939289, y: 1.7819183}
   m_EdgeRadius: 0
---- !u!50 &9012651901573451703
+--- !u!50 &-224557369053366412
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
