@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,25 +16,58 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverPanel;
 
+    [SerializeField]
+    private GameObject pausePanel;
     private int coin = 0;
 
     [HideInInspector]
     public bool isGameOver = false;
+    public bool isGamePaused = false;
 
     // singleton
     void Awake() {
-        if(instance == null) {
+        if (instance == null)
+        {
             instance = this;
         }
     }
 
-    public void IncreaseCoin() {
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isGameOver) { TogglePause(); }
+            else if (isGameOver) { Application.Quit(); }
+        }
+    }
+
+    private void TogglePause()
+    {
+        isGamePaused = !isGamePaused;
+
+        if (isGamePaused)
+        {
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
+            
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pausePanel.SetActive(false);
+        }
+    }
+
+    public void IncreaseCoin()
+    {
         coin++;
         text.SetText(coin.ToString());
 
-        if (coin % 20 == 0) {   // 20, 40, 50...
+        if (coin % 20 == 0)
+        {   // 20, 40, 50...
             Player player = FindObjectOfType<Player>();
-            if (player != null) {
+            if (player != null)
+            {
                 player.Upgrade();
             }
         }

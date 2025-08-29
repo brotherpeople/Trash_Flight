@@ -42,9 +42,34 @@ public class Player : MonoBehaviour
         // ************ check current mouse position  
         // Debug.Log(Input.mousePosition);
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float toX = Mathf.Clamp(mousePos.x, -2.35f, 2.35f);
-        transform.position = new Vector3(toX, transform.position.y, transform.position.z);
+        if (!GameManager.instance.isGamePaused)
+        {
+            // // for mobile version
+            // Vector3 inputPos = Vector3.zero;
+            // bool hasInput = false;
+
+            // if (Input.touchCount > 0)
+            // {
+            //     Touch touch = Input.GetTouch(0);
+            //     inputPos = touch.position;
+            //     hasInput = true;
+            // }
+
+            // else if (Input.GetMouseButton(0))
+            // {
+            //     inputPos = Input.mousePosition;
+            //     hasInput = true;
+            // }
+            // if (hasInput)
+            // {
+            //     Vector3 worldPos = Camera.main.ScreenToWorldPoint(inputPos);
+            //     float toX = Mathf.Clamp(worldPos.x, -2.35f, 2.35f);
+            //     transform.position = new Vector3(toX, transform.position.y, transform.position.z);
+            // }
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float toX = Mathf.Clamp(mousePos.x, -2.35f, 2.35f);
+            transform.position = new Vector3(toX, transform.position.y, transform.position.z);
+        }
 
         if (GameManager.instance.isGameOver == false) {
             Shoot();
